@@ -1,218 +1,228 @@
 :root {
-    --primary-color: #e50914;
-    --dark-color: #222;
+  --primary-color: #e50914;
+  --dark-color: #222;
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #000;
-    color: #999;
-
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.1;
+  background: #000;
+  color: #999;
 }
 
 h1 {
-    font-size: 64px;
-    font-weight: 700;
-    color: #FFF;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
 }
 
 h2 {
-    font-size: 26px;
-    font-weight: 400;
-    color: #FFF;
-    line-height: 34px;
+  font-size: 1.625rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 34px;
 }
 
 h3 {
-    font-size: 19px;
-    font-weight: 400;
-    color: #FFF;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #fff;
 }
 
 a {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 p {
-    pading: 8px 0;
+  pading: 0.5rem 0;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 img {
-    display: block;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
 }
 
 /* Showcase */
 .showcase {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: url("../images/netflix-background.jpg") no-repeat center center / cover; 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas:
-        "showcase-top"
-        "showcase-content";
-    align-items: center;
-
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("../images/netflix-background.jpg") no-repeat center center /
+    cover;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "showcase-top"
+    "showcase-content";
+  align-items: center;
 }
 
 .showcase::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0, 0.5);
-    box-shadow: inset 120px 100px 250px rgba(0,0,0, 0.6), -120px -100px 250px rgba(0,0,0, 0.5) ;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 120px 100px 250px rgba(0, 0, 0, 0.6),
+    -120px -100px 250px rgba(0, 0, 0, 0.5);
 }
 
 .showcase-top {
-    grid-area: showcase-top;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px 0 50px;
-    z-index: 2;
+  grid-area: showcase-top;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px 0 50px;
+  z-index: 2;
 }
 
 .showcase-top img {
-    width: 180px;
-    height: auto;
+  width: 180px;
+  height: auto;
 }
 
 .showcase-content {
-    grid-area: showcase-content;
-    margin: auto;
-    width: 55%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding-top: 100px;
-    z-index: 2;
+  grid-area: showcase-content;
+  margin: auto;
+  /* width: 55%; */
+  max-width: 950px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 125px;
+  z-index: 2;
 }
 
 .showcase-content h2 {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .showcase-content h3 {
-    padding-top: 30px;
+  padding-top: 30px;
 }
 
 .showcase-content form {
-    width: 100%;
-    display: flex;
-    margin-top: 20px;
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
 }
 
 .showcase-content form input {
-    flex: 1 1 auto;
-    padding: 8px;
-    font-size: 17px;
-    outline: none;
-    border-radius: 2px;
-    border: none;
+  min-width: 500px;
+  /* flex: 1; */
+  padding: 10px;
+  font-size: 1rem;
+  outline: none;
+  border-radius: 2px;
+  border: none;
 }
 
-/* Animation Cards */
-.animation-card {
-    padding: 50px 5%;
-    border-top: 8px solid var(--dark-color);
+/* Cards */
+.card {
+  padding: 50px 5%;
+  border-top: 8px solid var(--dark-color);
 }
 
-.animation-card .container {
-    max-width: 1100px;
-    display: flex;
-    margin: auto;
-    justify-content: space-between;
+.card .container {
+  position: relative;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  margin: 0 auto;
 }
 
-.animation-card .container .card-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-right: 48px;
+.animation-container {
+  grid-column: span 4;
 }
 
-.reversed {
-    padding: 0 0 0 48px;
+.card-text {
+  grid-column: span 5;
 }
 
-.animation-card .container .card-text h1 {
-    font-size: 50px;
+.card .card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 3rem;
 }
 
-.animation-card .container .card-text h2 {
-    padding-top: 20px;
+#card-2 .card-text {
+  padding: 0 0 0 3rem;
 }
 
-.animation-card .container .animation-container {
-    width: 100%;
+#card-3 .card-text {
+  padding-right: 4rem;
 }
 
-
-
-.animation-card .container img {
-    max-width: 100%;
-    height: auto;
-}
-.card-2 .animation-container {
-    width: 50%;
+.card h1 {
+  font-size: 3.125rem;
+  line-height: 3.45rem;
+  margin-bottom: 1.2rem;
 }
 
-.card-2 img {
-    position: relative;
-    right: 100px;
+#card-2 .animation-container {
+  /* width: 90%; */
+  position: relative;
+  right: 80px;
 }
 
+#card-3 .animation-container {
+  width: 113%;
+  /* position: relative;
+  left: 50px; */
+}
 
 /* Buttons */
-
 .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: var(--primary-color);
-    font-size: 16px;
-    padding: 8px 20px;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    margin-right: 8px;
-    outline: none;
-    align-self: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--primary-color);
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-right: 8px;
+  outline: none;
+  align-self: auto;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: #f40612;
 }
 
 .btn-lg {
-    text-transform: uppercase;
-    font-size: 32px;
-    padding: 16px 20px;
+  text-transform: uppercase;
+  font-size: 1.875rem;
+  padding: 1rem 1.25rem;
 }
 
 .btn-round {
-    border-radious: 4px;
+  border-radious: 4px;
 }
 
 .btn-icon {
-    padding-left: 16px;
+  padding-left: 1rem;
 }
-
