@@ -102,7 +102,6 @@ img {
 .showcase-content {
   grid-area: showcase-content;
   margin: auto;
-  /* width: 55%; */
   max-width: 950px;
   display: flex;
   flex-direction: column;
@@ -206,15 +205,17 @@ img {
 .btn-content {
   background: #303030;
 
-  height: 0px;
+  max-height: 0px;
   overflow: hidden;
-  /* display: none; */
+  transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+}
+
+.btn-content p {
+  padding: 1.2em;
 }
 
 .show {
-  height: 100%;
-  padding: 1.2em;
-  /* display: block; */
+  max-height: 1200px;
 }
 
 /* Footer */
@@ -328,7 +329,10 @@ img {
   margin-bottom: 2px;
 }
 
+.fa-plus {
+  transition: transform 25ms;
+}
+
 .icon-rotate {
   transform: rotate(45deg);
-  /* transform-origin: top center; */
 }

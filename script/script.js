@@ -1,27 +1,35 @@
-const buttons = document.querySelectorAll(".btn-faq");
-const buttonContents = document.querySelectorAll(".btn-content");
+const buttonItems = document.querySelectorAll(".btn-faq");
+const buttonContentItems = document.querySelectorAll(".btn-content");
 
-function selectButton(e) {
-  removeIconRotate();
-  removeShow();
-  this.lastElementChild.classList.add("icon-rotate");
-
-  const buttonContent = document.querySelector(`#${this.id}-content`);
-  buttonContent.classList.add("show");
-}
-
-function removeIconRotate() {
-  buttons.forEach((item) => {
-    item.lastElementChild.classList.remove("icon-rotate");
-  });
-}
-
-function removeShow() {
-  buttonContents.forEach((item) => {
-    item.classList.remove("show");
-  });
-}
-
-buttons.forEach((item) => {
+// Listen for button click
+buttonItems.forEach((item) => {
   item.addEventListener("click", selectButton);
 });
+
+// Select button item
+function selectButton(e) {
+  removeIconRotate(this.id);
+  this.lastElementChild.classList.toggle("icon-rotate");
+
+  removeShow(`${this.id}-content`);
+  const buttonContent = document.querySelector(`#${this.id}-content`);
+  buttonContent.classList.toggle("show");
+}
+
+// Remove icon-rotate class from all icon items
+function removeIconRotate(selectionId) {
+  buttonItems.forEach((item) => {
+    if (item.id != selectionId) {
+      item.lastElementChild.classList.remove("icon-rotate");
+    }
+  });
+}
+
+// Remove show class from al button items
+function removeShow(selectionId) {
+  buttonContentItems.forEach((item) => {
+    if (item.id != selectionId) {
+      item.classList.remove("show");
+    }
+  });
+}
